@@ -19,50 +19,58 @@ Apply data visualization techniques to identify the patterns of the data.
 # CODE
 ```
 /* 
-Name : Aakash H
-Register Number : 212220040002
-**Data Visualization - Iris.csv**
+Name : Ranjith G.
+Register Number : 212220220034
+**Data Visualization - superstore.csv**
 import pandas as pd
-import seaborn as sns
+import numpy as np
 import matplotlib.pyplot as plt
-df = pd.read_csv("/content/Iris.csv")
+import seaborn as sbn
+df=pd.read_csv("Superstore.csv",encoding = 'windows-1252')
 df.head()
+
 df.info()
-df["Species"].value_counts()
-sns.countplot(x='Species', data=df, )
-plt.show()
-sns.scatterplot(x='SepalLengthCm', y='SepalWidthCm',
-                hue='Species', data=df, )
-plt.legend(bbox_to_anchor=(1, 1), loc=2)
-plt.show()
-sns.scatterplot(x='PetalLengthCm', y='PetalWidthCm',
-                hue='Species', data=df, )
-plt.legend(bbox_to_anchor=(1, 1), loc=2) 
-plt.show()
-sns.pairplot(df.drop(['Id'], axis = 1), hue='Species', height=2)
-fig, axes = plt.subplots(2, 2, figsize=(10,10)) 
-axes[0,0].set_title("Sepal Length")
-axes[0,0].hist(df['SepalLengthCm'], bins=7)
-axes[0,1].set_title("Sepal Width")
-axes[0,1].hist(df['SepalWidthCm'], bins=5); 
-axes[1,0].set_title("Petal Length")
-axes[1,0].hist(df['PetalLengthCm'], bins=6); 
-axes[1,1].set_title("Petal Width")
-axes[1,1].hist(df['PetalWidthCm'], bins=6);
-sns.heatmap(df.corr(method='pearson').drop(
-    ['Id'], axis=1).drop(['Id'], axis=0),
-            annot = True); 
-plt.show()
+
+df.isnull().sum()
+
+sbn.countplot(x=df['Segment'],data=df)
+plt.title("Number of Sales in Segment")
+
+sbn.barplot(x=df['City'],y=df['Profit'])
+plt.title("Number of Profit in Cities")
+
+sbn.countplot(x=df['Ship Mode'],data=df)
+plt.title("Number of profits in Ship Mode")
+
+sbn.boxplot(x=df['Region'], y=df['Sales'])
+plt.title("Sales of Product based on Region")
+
+sbn.scatterplot(x=df['Sales'], y=df['Profit'])
+
+sbn.scatterplot(x=df['Sales'],y=df['City'],hue=df['Profit'])
+
+
+sbn.scatterplot(x=df['Sales'],y=df['Profit'],hue=df['Ship Mode'])
+
+sbn.scatterplot(x=df['Sales'],y=df['Profit'],hue=df['Region'])
+
+
+
+
+
 */
 ```
 # OUPUT
-## Data Visualization - Iris.csv
-![Data_Visualization](/images/img.png)
-![Data_Visualization](/images/img2.png)
-![Data_Visualization](/images/img3.png)
-![Data_Visualization](/images/img4.png)
-![Data_Visualization](/images/img5.png)
-![Data_Visualization](/images/img6.png)
+## Data Visualization - superstore.csv
+![1](https://github.com/ranjithhacker/EXP-09-Data-visualization-II/assets/129825315/c6b5c685-b15c-40b2-8948-50abf10007d7)
+![2](https://github.com/ranjithhacker/EXP-09-Data-visualization-II/assets/129825315/c436e844-6f47-4796-8c18-76f8f5da8420)
+![3](https://github.com/ranjithhacker/EXP-09-Data-visualization-II/assets/129825315/68c63ed6-e4e4-4fe2-a093-c43b8b7288ed)
+![4](https://github.com/ranjithhacker/EXP-09-Data-visualization-II/assets/129825315/fa37e60b-2859-4587-abef-40a40947b326)
+![5](https://github.com/ranjithhacker/EXP-09-Data-visualization-II/assets/129825315/a0eea68f-eaff-4a42-b388-33f3efe091ee)
+![6](https://github.com/ranjithhacker/EXP-09-Data-visualization-II/assets/129825315/422faff2-05ac-4ac9-99b4-481cc83c353a)
+![7](https://github.com/ranjithhacker/EXP-09-Data-visualization-II/assets/129825315/92b38d1d-3959-4585-aa0e-c4a70d0a5641)
+![8](https://github.com/ranjithhacker/EXP-09-Data-visualization-II/assets/129825315/241168c2-ed8e-4ac7-94b2-d59034b280f3)
+
 
 # RESULT
 Thus the Data Visualization for the given dataset had been executed successfully.
